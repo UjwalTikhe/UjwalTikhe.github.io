@@ -232,12 +232,26 @@ body:has(.card:hover) .cursor-ring {
 /* ─── HERO ─── */
 .hero {
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   padding: 0 clamp(24px, 8vw, 160px);
   position: relative;
   overflow: hidden;
+  gap: 60px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .hero-glow {
@@ -920,6 +934,15 @@ section h2 .serif {
   text-align: center;
 }
 
+/* ─── HERO CAT ─── */
+#kitty {
+  position: relative;
+  width: 500px;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.4));
+}
+
 #contact .section-label { justify-content: center; }
 #contact .section-sub { margin-left: auto; margin-right: auto; }
 
@@ -1001,6 +1024,8 @@ footer {
   .hero-meta { gap: 24px; }
   .hero h1 { font-size: 40px; }
   .hero-sub { font-size: 15px; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-cat { display: none; }
 }
 </style>
 </head>
@@ -1028,50 +1053,65 @@ footer {
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
 
-  <div class="reveal">
-    <div class="eyebrow">
-      <span class="pulse"></span>
-      Open to Opportunities
+  <div class="hero-content">
+    <div class="reveal">
+      <div class="eyebrow">
+        <span class="pulse"></span>
+        Open to Opportunities
+      </div>
+    </div>
+
+    <h1 class="reveal" style="transition-delay: 0.1s;">
+      Ujwal Tikhe<br>
+      <span class="serif">Cybercrime</span><br>
+      Investigator
+    </h1>
+
+    <p class="hero-sub reveal" style="transition-delay: 0.2s;">
+      Digital forensics and incident response at Cyber Cell Nashik.
+      Building tools that turn raw evidence into courtroom-ready intelligence.
+    </p>
+
+    <div class="hero-cta-row reveal" style="transition-delay: 0.3s;">
+      <a href="mailto:ujwaltikhe30@gmail.com" class="btn-primary">
+        Get in Touch
+        <span class="arrow-wrap">↗</span>
+      </a>
+      <a href="https://github.com/UjwalTikhe" target="_blank" class="btn-ghost">
+        View GitHub →
+      </a>
+    </div>
+
+    <div class="hero-meta reveal" style="transition-delay: 0.4s;">
+      <div class="hero-stat">
+        <span class="val">8.7</span>
+        <span class="lab">CGPA</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">200+</span>
+        <span class="lab">LeetCode</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">NSO</span>
+        <span class="lab">Gold Medalist</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">DFIR</span>
+        <span class="lab">Specialization</span>
+      </div>
     </div>
   </div>
 
-  <h1 class="reveal" style="transition-delay: 0.1s;">
-    Ujwal Tikhe<br>
-    <span class="serif">Cybercrime</span><br>
-    Investigator
-  </h1>
-
-  <p class="hero-sub reveal" style="transition-delay: 0.2s;">
-    Digital forensics and incident response at Cyber Cell Nashik.
-    Building tools that turn raw evidence into courtroom-ready intelligence.
-  </p>
-
-  <div class="hero-cta-row reveal" style="transition-delay: 0.3s;">
-    <a href="mailto:ujwaltikhe30@gmail.com" class="btn-primary">
-      Get in Touch
-      <span class="arrow-wrap">↗</span>
-    </a>
-    <a href="https://github.com/UjwalTikhe" target="_blank" class="btn-ghost">
-      View GitHub →
-    </a>
-  </div>
-
-  <div class="hero-meta reveal" style="transition-delay: 0.4s;">
-    <div class="hero-stat">
-      <span class="val">8.7</span>
-      <span class="lab">CGPA</span>
-    </div>
-    <div class="hero-stat">
-      <span class="val">200+</span>
-      <span class="lab">LeetCode</span>
-    </div>
-    <div class="hero-stat">
-      <span class="val">NSO</span>
-      <span class="lab">Gold Medalist</span>
-    </div>
-    <div class="hero-stat">
-      <span class="val">DFIR</span>
-      <span class="lab">Specialization</span>
+  <!-- Big Cat on Right Side -->
+  <div class="hero-cat reveal" style="transition-delay: 0.5s;">
+    <div id="kitty" aria-hidden="true">
+      <div class="buzz">
+        <div class="rig">
+          <img id="catimg" src="cat.png" alt="" draggable="false">
+          <div class="eyewell" style="left:42%; top:38%"><div class="pupil"></div></div>
+          <div class="eyewell" style="left:58%; top:38%"><div class="pupil"></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1560,32 +1600,14 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 </script>
 
-<!-- Interactive Cat -->
-<div id="kitty" aria-hidden="true">
-  <div class="buzz">
-    <div class="rig">
-      <img id="catimg" src="cat.png" alt="" draggable="false">
-      <!-- pupils sit inside the white eyes; positions are % of the image -->
-      <div class="eyewell" style="left:42%; top:38%"><div class="pupil"></div></div>
-      <div class="eyewell" style="left:58%; top:38%"><div class="pupil"></div></div>
-    </div>
-  </div>
-</div>
-
 <style>
-  #kitty{
-    position:fixed; right:12px; bottom:0px; width:300px;   /* size of the whole image */
-    z-index:9999; pointer-events:none;
-    filter:drop-shadow(0 4px 8px rgba(0,0,0,.28));
-    transform:translateY(0);
-  }
-  @keyframes peek{ to{ transform:translateY(0) } }
+  /* Interactive Cat Styles */
   #kitty .rig{ position:relative; transform-origin:50% 90%; will-change:transform }
   #catimg{ display:block; width:100%; height:auto; user-select:none }
 
   /* the eye window: clips the pupil to the white oval */
   .eyewell{
-    position:absolute; width:7%; height:9%;           /* match the eye size */
+    position:absolute; width:7%; height:9%;
     transform:translate(-50%,-50%); border-radius:50%;
     overflow:hidden; animation:blink 5s infinite;
   }
@@ -1619,6 +1641,7 @@ window.addEventListener('scroll', () => {
   const PURR_SOUND = false;   // true = soft synthesized purr (starts after the visitor's first click/tap)
 
   const kitty = document.getElementById('kitty');
+  if (!kitty) return;
   const rig   = kitty.querySelector('.rig');
   const wells = [...kitty.querySelectorAll('.eyewell')];
   const pupils = wells.map(w => w.querySelector('.pupil'));
@@ -1681,7 +1704,7 @@ window.addEventListener('scroll', () => {
       const ex = mx - (r.left + r.width / 2), ey = my - (r.top + r.height / 2);
       const dist = Math.hypot(ex, ey) || 1;
       const k = Math.min(dist / 140, 1);
-      const maxX = r.width * 0.2, maxY = r.height * 0.2;   // how far the pupil may travel
+      const maxX = r.width * 0.2, maxY = r.height * 0.2;   /* how far the pupil may travel */
       state[i].x += (ex / dist * k * maxX - state[i].x) * 0.25;
       state[i].y += (ey / dist * k * maxY - state[i].y) * 0.25;
       pupils[i].style.transform = `translate(${state[i].x}px, ${state[i].y}px)`;
