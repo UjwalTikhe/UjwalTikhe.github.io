@@ -1560,5 +1560,142 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 </script>
 
+<!-- Interactive Cat -->
+<div id="kitty" aria-hidden="true">
+  <div class="buzz">
+    <div class="rig">
+      <img id="catimg" src="cat.png" alt="" draggable="false">
+      <!-- pupils sit inside the white eyes; positions are % of the image -->
+      <div class="eyewell" style="left:42%; top:38%"><div class="pupil"></div></div>
+      <div class="eyewell" style="left:58%; top:38%"><div class="pupil"></div></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #kitty{
+    position:fixed; right:12px; bottom:-10px; width:300px;   /* size of the whole image */
+    z-index:9999; pointer-events:none;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.28));
+    transform:translateY(35%); animation:peek .9s .4s cubic-bezier(.3,1.4,.5,1) forwards;
+  }
+  @keyframes peek{ to{ transform:translateY(0) } }
+  #kitty .rig{ position:relative; transform-origin:50% 90%; will-change:transform }
+  #catimg{ display:block; width:100%; height:auto; user-select:none }
+
+  /* the eye window: clips the pupil to the white oval */
+  .eyewell{
+    position:absolute; width:7%; height:9%;           /* match the eye size */
+    transform:translate(-50%,-50%); border-radius:50%;
+    overflow:hidden; animation:blink 5s infinite;
+  }
+  @keyframes blink{ 0%,94%,100%{transform:translate(-50%,-50%) scaleY(1)} 97%{transform:translate(-50%,-50%) scaleY(.08)} }
+  .pupil{
+    position:absolute; left:50%; top:50%; width:78%; height:78%; border-radius:50%;
+    margin:-39% 0 0 -39%;
+    background:
+      radial-gradient(circle at 32% 30%, #fff 0 12%, transparent 13%),
+      radial-gradient(circle at 50% 50%, #0c0f14 0 34%, #3d86d6 36% 72%, #2a5fa5 100%);
+    will-change:transform;
+  }
+
+  /* wiggle + purr buzz when the cursor is near */
+  #kitty.near .rig{ animation:wiggle .6s ease-in-out infinite }
+  #kitty.near .buzz{ animation:buzz .09s linear infinite }
+  @keyframes wiggle{ 0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(2deg)} }
+  @keyframes buzz{ 0%,100%{transform:translateX(-.6px)} 50%{transform:translateX(.6px)} }
+
+  /* "ear perk": a quick springy pop when the mouse moves fast */
+  #kitty.perk .rig{ animation:perk .5s cubic-bezier(.3,1.7,.5,1) }
+  @keyframes perk{ 0%{transform:scale(1)} 40%{transform:translateY(-6px) scale(1.04,1.07)} 100%{transform:scale(1)} }
+
+  @media (prefers-reduced-motion: reduce){
+    #kitty.near .rig,#kitty.near .buzz,#kitty.perk .rig{ animation:none }
+  }
+</style>
+
+<script>
+(() => {
+  const PURR_SOUND = false;   // true = soft synthesized purr (starts after the visitor's first click/tap)
+
+  const kitty = document.getElementById('kitty');
+  const rig   = kitty.querySelector('.rig');
+  const wells = [...kitty.querySelectorAll('.eyewell')];
+  const pupils = wells.map(w => w.querySelector('.pupil'));
+  const state = wells.map(() => ({ x: 0, y: 0 }));
+
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const NEAR = 170;
+  let mx = innerWidth / 2, my = innerHeight / 2;
+  let tilt = 0, tx = 0, ty = 0;
+
+  // fast mouse flick -> perk
+  let lastX = mx, lastY = my, lastT = performance.now(), perkTimer;
+  addEventListener('pointermove', ev => {
+    const now = performance.now();
+    const speed = Math.hypot(ev.clientX - lastX, ev.clientY - lastY) / Math.max(now - lastT, 1);
+    lastX = mx = ev.clientX; lastY = my = ev.clientY; lastT = now;
+    if (speed > 1.6 && !kitty.classList.contains('perk')) {
+      kitty.classList.add('perk');
+      clearTimeout(perkTimer);
+      perkTimer = setTimeout(() => kitty.classList.remove('perk'), 550);
+    }
+  });
+
+  // optional purr
+  let ac, purrGain;
+  function initAudio() {
+    if (!PURR_SOUND || ac) return;
+    ac = new (window.AudioContext || window.webkitAudioContext)();
+    const len = ac.sampleRate * 2, buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+    let last = 0;
+    for (let i = 0; i < len; i++) { last = (last + 0.02 * (Math.random() * 2 - 1)) / 1.02; d[i] = last * 3.5; }
+    const src = ac.createBufferSource(); src.buffer = buf; src.loop = true;
+    const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 180;
+    const am = ac.createGain(); am.gain.value = 0.5;
+    const lfo = ac.createOscillator(); lfo.frequency.value = 24;
+    const amt = ac.createGain(); amt.gain.value = 0.5;
+    purrGain = ac.createGain(); purrGain.gain.value = 0;
+    lfo.connect(amt); amt.connect(am.gain);
+    src.connect(lp); lp.connect(am); am.connect(purrGain); purrGain.connect(ac.destination);
+    src.start(); lfo.start();
+  }
+  addEventListener('pointerdown', () => { initAudio(); if (ac && ac.state === 'suspended') ac.resume(); });
+
+  function frame() {
+    const kr = kitty.getBoundingClientRect();
+    const cx = kr.left + kr.width / 2, cy = kr.top + kr.height * 0.5;
+    const dx = mx - cx, dy = my - cy;
+
+    // head tilt + lean (the whole cat rig leans toward the cursor)
+    tilt += (clamp(dx / (innerWidth * 0.5) * 6, -5, 5) - tilt) * 0.1;
+    tx   += (clamp(dx / innerWidth * 10, -5, 5) - tx) * 0.1;
+    ty   += (clamp(dy / innerHeight * 6, -3, 3) - ty) * 0.1;
+    if (!kitty.classList.contains('near') && !kitty.classList.contains('perk'))
+      rig.style.transform = `translate(${tx}px, ${ty}px) rotate(${tilt}deg)`;
+    else rig.style.transform = '';
+
+    // pupils: move within each eye, toward the cursor
+    wells.forEach((w, i) => {
+      const r = w.getBoundingClientRect();
+      const ex = mx - (r.left + r.width / 2), ey = my - (r.top + r.height / 2);
+      const dist = Math.hypot(ex, ey) || 1;
+      const k = Math.min(dist / 140, 1);
+      const maxX = r.width * 0.2, maxY = r.height * 0.2;   // how far the pupil may travel
+      state[i].x += (ex / dist * k * maxX - state[i].x) * 0.25;
+      state[i].y += (ey / dist * k * maxY - state[i].y) * 0.25;
+      pupils[i].style.transform = `translate(${state[i].x}px, ${state[i].y}px)`;
+    });
+
+    const near = Math.hypot(dx, dy) < NEAR;
+    kitty.classList.toggle('near', near);
+    if (purrGain) purrGain.gain.setTargetAtTime(near ? 0.35 : 0, ac.currentTime, 0.2);
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
 </body>
 </html>
