@@ -1574,10 +1574,10 @@ window.addEventListener('scroll', () => {
 
 <style>
   #kitty{
-    position:fixed; right:12px; bottom:-10px; width:300px;   /* size of the whole image */
+    position:fixed; right:12px; bottom:0px; width:300px;   /* size of the whole image */
     z-index:9999; pointer-events:none;
     filter:drop-shadow(0 4px 8px rgba(0,0,0,.28));
-    transform:translateY(35%); animation:peek .9s .4s cubic-bezier(.3,1.4,.5,1) forwards;
+    transform:translateY(0);
   }
   @keyframes peek{ to{ transform:translateY(0) } }
   #kitty .rig{ position:relative; transform-origin:50% 90%; will-change:transform }
