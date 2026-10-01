@@ -488,7 +488,7 @@ section h2 .serif {
 
 /* ─── ABOUT ─── */
 #about {
-  background: var(--bg-raised);
+  background: var(--bg);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -929,7 +929,7 @@ section h2 .serif {
 
 /* ─── CONTACT ─── */
 #contact {
-  background: var(--bg-raised);
+  background: var(--bg);
   border-top: 1px solid var(--border);
   text-align: center;
 }
@@ -1025,7 +1025,8 @@ footer {
   .hero h1 { font-size: 40px; }
   .hero-sub { font-size: 15px; }
   .hero { grid-template-columns: 1fr; }
-  .hero-cat { display: none; }
+  .hero-cat { display: flex; }
+  #kitty { width: 300px; }
 }
 </style>
 </head>
