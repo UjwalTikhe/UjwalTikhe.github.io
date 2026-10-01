@@ -9,6 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 <style>
 /* ─── RESET & BASE ─── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,6 +50,68 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   cursor: none;
+}
+
+/* ─── SMOOTH SCROLL ANIMATIONS ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered letter animation */
+.animate-letters {
+  display: inline-block;
+}
+
+.animate-letters span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-letters.visible span {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 ::selection {
@@ -962,25 +1028,25 @@ footer {
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
 
-  <div data-reveal>
+  <div class="reveal">
     <div class="eyebrow">
       <span class="pulse"></span>
       Open to Opportunities
     </div>
   </div>
 
-  <h1 data-reveal data-delay="1">
+  <h1 class="reveal" style="transition-delay: 0.1s;">
     Ujwal Tikhe<br>
     <span class="serif">Cybercrime</span><br>
     Investigator
   </h1>
 
-  <p class="hero-sub" data-reveal data-delay="2">
+  <p class="hero-sub reveal" style="transition-delay: 0.2s;">
     Digital forensics and incident response at Cyber Cell Nashik.
     Building tools that turn raw evidence into courtroom-ready intelligence.
   </p>
 
-  <div class="hero-cta-row" data-reveal data-delay="3">
+  <div class="hero-cta-row reveal" style="transition-delay: 0.3s;">
     <a href="mailto:ujwaltikhe30@gmail.com" class="btn-primary">
       Get in Touch
       <span class="arrow-wrap">↗</span>
@@ -990,7 +1056,7 @@ footer {
     </a>
   </div>
 
-  <div class="hero-meta" data-reveal data-delay="4">
+  <div class="hero-meta reveal" style="transition-delay: 0.4s;">
     <div class="hero-stat">
       <span class="val">8.7</span>
       <span class="lab">CGPA</span>
@@ -1012,13 +1078,13 @@ footer {
 
 <!-- ═══════════════════ ABOUT ═══════════════════ -->
 <section id="about">
-  <div data-reveal>
+  <div class="reveal">
     <div class="section-label">01 — About</div>
     <h2>Hunting threats<br><span class="serif">in the dark</span></h2>
   </div>
 
   <div class="about-grid">
-    <div class="about-text" data-reveal data-delay="1">
+    <div class="about-text reveal-left" style="transition-delay: 0.1s;">
       <p>
         Final-year Computer Engineering student at <strong>KBTCOE Nashik</strong> (SPPU) with a sharp focus on
         <strong>digital forensics, incident response, and threat intelligence</strong>. Currently working with
@@ -1044,7 +1110,7 @@ footer {
       </div>
     </div>
 
-    <div class="about-details" data-reveal data-delay="2">
+    <div class="about-details reveal-right" style="transition-delay: 0.2s;">
       <div class="detail-card">
         <div class="dc-label">Location</div>
         <div class="dc-value">Nashik, Maharashtra, India</div>
@@ -1067,13 +1133,13 @@ footer {
 
 <!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
 <section id="experience">
-  <div data-reveal>
+  <div class="reveal">
     <div class="section-label">02 — Experience</div>
     <h2>In the <span class="serif">field</span></h2>
     <p class="section-sub">Active criminal investigations, digital evidence analysis, and deep-web intelligence at Maharashtra's Cyber Cell.</p>
   </div>
 
-  <div class="exp-timeline" data-reveal data-delay="1">
+  <div class="exp-timeline reveal" style="transition-delay: 0.1s;">
     <div class="exp-entry">
       <div class="exp-meta">
         <span class="exp-org">Cyber Cell Nashik</span>
@@ -1092,7 +1158,7 @@ footer {
 
 <!-- ═══════════════════ PROJECTS ═══════════════════ -->
 <section id="projects">
-  <div data-reveal>
+  <div class="reveal">
     <div class="section-label">03 — Projects</div>
     <h2>Things I've <span class="serif">built</span></h2>
     <p class="section-sub">From AI-powered data science copilots to tamper-proof evidence chains for field officers.</p>
@@ -1100,7 +1166,7 @@ footer {
 
   <div class="projects-grid">
     <!-- FEATURED: DataMentor AI -->
-    <div class="card featured" data-reveal data-delay="1">
+    <div class="card featured reveal-scale" style="transition-delay: 0.1s;">
       <div>
         <div class="card-eyebrow">Final-Year Capstone</div>
         <h3>DataMentor AI</h3>
@@ -1122,7 +1188,7 @@ footer {
     </div>
 
     <!-- UDTC -->
-    <div class="card" data-reveal data-delay="2">
+    <div class="card reveal-scale" style="transition-delay: 0.2s;">
       <div class="card-eyebrow">Smart India Hackathon 2026</div>
       <h3>UDTC: Field Drug Testing</h3>
       <p>Android app for field officers — reads reagent test colours using CIEDE2000 colorimetry with blur detection and lighting correction. SHA-256 hash chain, dual-officer ECDSA signatures, GPS watermarks on evidence photos. NDPS Act Section 52A compliant.</p>
@@ -1137,7 +1203,7 @@ footer {
     </div>
 
     <!-- URL Shortener -->
-    <div class="card" data-reveal data-delay="3">
+    <div class="card reveal-scale" style="transition-delay: 0.3s;">
       <div class="card-eyebrow">Backend Engineering</div>
       <h3>URL Shortener</h3>
       <p>Async FastAPI service with Redis connection pooling and IP-based rate limiting. Multi-stage Docker builds cut image size by 60%. Clean architecture with async I/O throughout.</p>
@@ -1154,13 +1220,13 @@ footer {
 
 <!-- ═══════════════════ SKILLS ═══════════════════ -->
 <section id="skills">
-  <div data-reveal>
+  <div class="reveal">
     <div class="section-label">04 — Technical Arsenal</div>
     <h2>Tools of the <span class="serif">trade</span></h2>
   </div>
 
   <div class="skills-bento">
-    <div class="skill-group" data-reveal data-delay="1">
+    <div class="skill-group reveal-scale" style="transition-delay: 0.1s;">
       <h3>Cybersecurity</h3>
       <div class="sg-sub">Primary Domain</div>
       <div class="skill-list">
@@ -1178,7 +1244,7 @@ footer {
       </div>
     </div>
 
-    <div class="skill-group" data-reveal data-delay="2">
+    <div class="skill-group reveal-scale" style="transition-delay: 0.2s;">
       <h3>Languages</h3>
       <div class="sg-sub">Programming</div>
       <div class="skill-list">
@@ -1192,7 +1258,7 @@ footer {
       </div>
     </div>
 
-    <div class="skill-group" data-reveal data-delay="3">
+    <div class="skill-group reveal-scale" style="transition-delay: 0.3s;">
       <h3>Backend & Data</h3>
       <div class="sg-sub">Infrastructure</div>
       <div class="skill-list">
@@ -1205,7 +1271,7 @@ footer {
       </div>
     </div>
 
-    <div class="skill-group" data-reveal data-delay="4">
+    <div class="skill-group reveal-scale" style="transition-delay: 0.4s;">
       <h3>Cloud & DevOps</h3>
       <div class="sg-sub">Deployment</div>
       <div class="skill-list">
@@ -1218,7 +1284,7 @@ footer {
       </div>
     </div>
 
-    <div class="skill-group" data-reveal data-delay="5">
+    <div class="skill-group reveal-scale" style="transition-delay: 0.5s;">
       <h3>Core CS</h3>
       <div class="sg-sub">Fundamentals</div>
       <div class="skill-list">
@@ -1234,13 +1300,13 @@ footer {
 
 <!-- ═══════════════════ EDUCATION & CERTS ═══════════════════ -->
 <section id="education">
-  <div data-reveal>
+  <div class="reveal">
     <div class="section-label">05 — Education & Certifications</div>
     <h2>Credentials <span class="serif">& proof</span></h2>
   </div>
 
   <div class="edu-certs-grid">
-    <div class="edu-card" data-reveal data-delay="1">
+    <div class="edu-card reveal-scale" style="transition-delay: 0.1s;">
       <h3>B.E. Computer Engineering</h3>
       <div class="edu-school">KBTCOE, Nashik — Savitribai Phule Pune University</div>
       <div class="edu-meta">
@@ -1249,7 +1315,7 @@ footer {
       </div>
     </div>
 
-    <div class="cert-card" data-reveal data-delay="2">
+    <div class="cert-card reveal-scale" style="transition-delay: 0.2s;">
       <h3>Certifications</h3>
       <div class="cert-list">
         <div class="cert-item">
@@ -1263,7 +1329,7 @@ footer {
       </div>
     </div>
 
-    <div class="edu-card" data-reveal data-delay="3">
+    <div class="edu-card reveal-scale" style="transition-delay: 0.3s;">
       <h3>HSC (Class XII)</h3>
       <div class="edu-school">PM SHRI Kendriya Vidyalaya No. 2, ISP Nashik</div>
       <div class="edu-meta">
@@ -1272,7 +1338,7 @@ footer {
       </div>
     </div>
 
-    <div class="cert-card" data-reveal data-delay="4">
+    <div class="cert-card reveal-scale" style="transition-delay: 0.4s;">
       <h3>Achievements</h3>
       <div class="cert-list">
         <div class="cert-item">
@@ -1294,13 +1360,13 @@ footer {
 
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
 <section id="contact">
-  <div data-reveal>
+  <div class="reveal">
     <div class="section-label">06 — Contact</div>
     <h2>Let's <span class="serif">connect</span></h2>
     <p class="section-sub">Looking for cybersecurity roles in DFIR, SOC and VAPT. Always open to interesting conversations about digital forensics and security engineering.</p>
   </div>
 
-  <div class="contact-links" data-reveal data-delay="1">
+  <div class="contact-links reveal" style="transition-delay: 0.1s;">
     <a href="mailto:ujwaltikhe30@gmail.com" class="contact-pill">✉ ujwaltikhe30@gmail.com</a>
     <a href="tel:+919356157025" class="contact-pill">📱 +91 93561 57025</a>
     <a href="https://linkedin.com/in/ujwal-tikhe" target="_blank" class="contact-pill">LinkedIn ↗</a>
@@ -1348,18 +1414,100 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-/* ─── Scroll Reveal ─── */
-const reveals = document.querySelectorAll('[data-reveal]');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+/* ─── Scroll Reveal with GSAP ─── */
+gsap.registerPlugin(ScrollTrigger);
 
-reveals.forEach(el => observer.observe(el));
+// Hero animations on load
+gsap.to('.hero .reveal', {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  stagger: 0.15,
+  ease: 'power3.out'
+});
+
+// Section animations on scroll
+gsap.utils.toArray('.reveal').forEach(element => {
+  gsap.to(element, {
+    scrollTrigger: {
+      trigger: element,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
+});
+
+// Left slide animations
+gsap.utils.toArray('.reveal-left').forEach(element => {
+  gsap.to(element, {
+    scrollTrigger: {
+      trigger: element,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    },
+    opacity: 1,
+    x: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
+});
+
+// Right slide animations
+gsap.utils.toArray('.reveal-right').forEach(element => {
+  gsap.to(element, {
+    scrollTrigger: {
+      trigger: element,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    },
+    opacity: 1,
+    x: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
+});
+
+// Scale animations
+gsap.utils.toArray('.reveal-scale').forEach(element => {
+  gsap.to(element, {
+    scrollTrigger: {
+      trigger: element,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    },
+    opacity: 1,
+    scale: 1,
+    duration: 0.8,
+    ease: 'power3.out'
+  });
+});
+
+// Parallax on hero glow
+gsap.to('.hero-glow', {
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1
+  },
+  y: 200,
+  opacity: 0.3
+});
+
+gsap.to('.hero-glow-2', {
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1
+  },
+  y: 150,
+  opacity: 0.2
+});
 
 /* ─── Smooth Nav Scroll ─── */
 document.querySelectorAll('.nav a').forEach(link => {
