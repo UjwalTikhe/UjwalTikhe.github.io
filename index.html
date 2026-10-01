@@ -40,7 +40,7 @@
   --font-serif:  'Instrument Serif', Georgia, serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-width: none; }
 
 body {
   background: var(--bg);
@@ -50,7 +50,10 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   cursor: none;
+  -ms-overflow-style: none;
 }
+
+body::-webkit-scrollbar { display: none; }
 
 /* ─── SMOOTH SCROLL ANIMATIONS ─── */
 .reveal {
@@ -957,8 +960,6 @@ section h2 .serif {
   justify-content: center;
   position: relative;
   min-height: 400px;
-  background: rgba(255, 0, 0, 0.1);
-  border: 2px solid red;
 }
 
 #kitty {
