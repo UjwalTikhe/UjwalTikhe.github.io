@@ -585,6 +585,10 @@ section h2 .serif {
 .detail-card .dc-value a { color: var(--accent); }
 
 /* ─── EXPERIENCE ─── */
+#experience {
+  background: var(--bg);
+}
+
 .exp-timeline {
   position: relative;
   padding-left: 40px;
@@ -681,6 +685,10 @@ section h2 .serif {
 }
 
 /* ─── PROJECTS ─── */
+#projects {
+  background: var(--bg);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -780,6 +788,10 @@ section h2 .serif {
 .card-link:hover { gap: 10px; }
 
 /* ─── SKILLS ─── */
+#skills {
+  background: var(--bg);
+}
+
 .skills-bento {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -845,6 +857,10 @@ section h2 .serif {
 }
 
 /* ─── EDUCATION & CERTS ─── */
+#education {
+  background: var(--bg);
+}
+
 .edu-certs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -941,6 +957,8 @@ section h2 .serif {
   z-index: 1;
   pointer-events: none;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,.4));
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 #contact .section-label { justify-content: center; }
@@ -1104,7 +1122,7 @@ footer {
   </div>
 
   <!-- Big Cat on Right Side -->
-  <div class="hero-cat reveal" style="transition-delay: 0.5s;">
+  <div class="hero-cat">
     <div id="kitty" aria-hidden="true">
       <div class="buzz">
         <div class="rig">
