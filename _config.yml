@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Suliya / 苏莉娅"
+title                    : "ujwal (耀)"
 title_separator          : "-"
-name                     : &name "Suliya"
-description              : &description "personal description"
-url                      : https://serea.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : &name "ujwal"
+description              : &description "Cybercrime Investigator & Software Developer"
+url                      : https://ujwaltikhe.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "serea/serea.github.io"
+repository               : "UjwalTikhe/ujwaltikhe.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -75,20 +75,20 @@ social:
 google_analytics: 
   provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : G-J5Z4PZJL1J
+    tracking_id          : 
 
 
 # Site Author
 author:
-  name             : "Suliya"
-  avatar           : "sly.jpg"
-  bio              : "AI Security R&D Expert at Chaitin Technology"
-  location         : "Beijing, China"
+  name             : "ujwal (耀)"
+  avatar           : "ujwal.jpg"
+  bio              : "Cybercrime Investigator & Software Developer"
+  location         : "Nashik, India"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "https://scholar.google.com/citations?user=1ebmfU4AAAAJ&hl=zh-CN"
-  email            : "sereat@163.com"
-  researchgate     : "https://www.researchgate.net/profile/Liya-Su-3"
+  googlescholar    :
+  email            : "ujwaltikhe30@gmail.com"
+  researchgate     :
   uri              :
   bitbucket        :
   codepen          :
@@ -96,13 +96,13 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "serea"
+  github           : "UjwalTikhe"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "suliya-suliya-827671207"
+  linkedin         : "ujwal-tikhe"
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
