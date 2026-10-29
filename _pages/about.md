@@ -16,7 +16,7 @@ Before this, I was a Stockbroker Intern at Allianz Versicherungs-AG. I am pursui
 
 ## What's New
 
-* 2026: Joined Cyber Cell Nashik (since June 2026) as Cybercrime Investigator, June 2026.
+* 2026: Joined Cyber Cell Nashik as Cybercrime Investigator (Jul 2026), after interning there Jan - Jul 2026.
 * 2025: Co-founded the Cybersecurity Student Club, Joined the ACM Student Chapter team.
 * 2025: Earned the Google Cybersecurity Professional Certificate.
 
@@ -29,8 +29,9 @@ Before this, I was a Stockbroker Intern at Allianz Versicherungs-AG. I am pursui
 
 ## Experience
 
-* Cybercrime Investigator & Digital Forensics Trainee, Cyber Cell Nashik, Jun 2026 - Present (past VAPT Intern)
-* Stockbroker Intern, Allianz Versicherungs-AG (Allianz Internship Program, remote), 2024 - 2025
+* Cybercrime Investigator & Digital Forensics Trainee, Cyber Cell Nashik, Jul 2026 - Present
+* VAPT Intern, Cyber Cell Nashik, Jan 2026 - Jul 2026
+* Stockbroker Intern, Allianz Versicherungs-AG (Allianz Internship Program, remote), Nov 2024 - May 2025
 
 ## Selected Publications
 
