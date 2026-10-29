@@ -8,26 +8,24 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I'm Ujwal Tikhe — currently working as a Cybercrime Investigator & Digital Forensics Trainee at Cyber Cell Nashik, where I explore how digital forensics and AI can be applied to real criminal investigations (and how to keep the evidence tamper-proof in the process).
+Hi, I'm Ujwal Tikhe — currently working as a Cybercrime Investigator & DFT at Cyber Cell Nashik, where I explore how digital forensics and AI can be applied to real criminal investigations (and how to keep the evidence tamper-proof in the process).
 
-Before this, I was a Stockbroker Intern at Allianz Versicherungs-AG. I am pursuing my B.E. in Computer Engineering at MVP Samaj's Karmaveer Baburao Ganpatrao Thakare College of Engineering, Nashik (SPPU), expected 2027. My work sits at the intersection of forensics and software — think evidence acquisition, MITRE ATT&CK-mapped log analysis, and figuring out creative ways attackers hide their tracks.
+Before this, I was a Stockbroker Intern at Allianz Versicherungs-AG. I am pursuing my B.E. in Computer Engineering at MVP Samaj's Karmaveer Baburao Ganpatrao Thakare College of Engineering, Nashik (SPPU), expected 2027. My work sits at the intersection of AI and security — think analyzing malicious behavior, graph neural networks, and figuring out the creative ways attackers break things.
 
 ---
 
 ## What's New
 
-* 2026: Working as Cybercrime Investigator & Digital Forensics Trainee at Cyber Cell Nashik (since June 2026), supporting DFIR on homicide, narcotics, blackmail and financial-fraud cases.
-* 2026: Building **UDTC: Field Drug Testing Companion** for the Smart India Hackathon 2026 — a tamper-evident, NDPS-compliant evidence app for field officers.
-* 2026: Started **DataMentor AI**, my final-year capstone — a local-first desktop AI copilot for dataset profiling and ML model selection.
-* 2025: Co-founded the Cybersecurity Student Club, Nashik, and joined the ACM Student Chapter design team.
-* 2025: Earned the NPTEL Cybersecurity and Privacy certification; pursuing the Google Cybersecurity Professional Certificate.
+* 2026: Joined Cyber Cell Nashik (since June 2026) as Cybercrime Investigator, June 2026.
+* 2025: Co-founded the Cybersecurity Student Club, Joined the ACM Student Chapter team.
+* 2025: Earned the Google Cybersecurity Professional Certificate.
 
 ## Research Interests
 
-* Digital Forensics & Incident Response (DFIR)
-* Threat Detection, SIEM & Threat Intelligence
-* Security Automation & Backend Engineering
-* Applied AI (RAG / LLMs) for security and data workflows
+* AI/LLM Security
+* Network Data Security & Threat Intelligence
+* Web Security & Blockchain Security
+* Graph Neural Networks for Security
 
 ## Experience
 
@@ -39,15 +37,14 @@ Before this, I was a Stockbroker Intern at Allianz Versicherungs-AG. I am pursui
 Coming soon.
 
 ## Awards & Honors
-
+* 2024: Allianz Internship Program
+* 2023: Central Railways National Scholarship
 * 2019: Gold Medalist, NSO Cyber Olympiad
-* 2025: Sole full-time stockbroker offer out of 20 interns (top 5% selection) at the Allianz Internship Program; passed the Series 7 examination on the first attempt
-* 150+ problems solved on LeetCode
 
 ## Education
 
 Year | Institute | Major | Degree
 -----|-------|--------|-------
-2023 - 2027 (expected) | MVP Samaj's Karmaveer Baburao Ganpatrao Thakare College of Engineering, Nashik (SPPU) | Computer Engineering | B.E.
-2021 - 2023 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | Science | Higher Secondary (Class XI-XII)
-2016 - 2020 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | | Secondary School (Class X)
+2023 - 2027 (expected) | MVP Samaj's Karmaveer Baburao Ganpatrao Thakare College of Engineering, Nashik (SPPU) | Computer Engineering | B.E. Computer
+2021 - 2023 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | Science | Higher Secondary (Class XI - XII)
+2016 - 2020 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | CBSE | Secondary School (Class VI - X)
