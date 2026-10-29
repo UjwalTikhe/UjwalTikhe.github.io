@@ -1,14 +1,16 @@
+# build output
 _site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# local-only backup of the upstream template's demo content
 _demo_content_backup/
 
-# leftover template assets from the upstream fork (not referenced by this site)
-files/
-images/misc/
-images/posts/
-images/sly.jpg
-images/bio-photo.jpg
-images/bio-photo-2.jpg
-images/foo-bar-identity.jpg
-images/foo-bar-identity-th.jpg
-images/3953273590_704e3899d5_m.jpg
+# ruby
+Gemfile.lock
+vendor/
+
+# OS noise
 .DS_Store
+Thumbs.db

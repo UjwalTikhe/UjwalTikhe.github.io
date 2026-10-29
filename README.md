@@ -1,20 +1,40 @@
-This is my personal github page repository. This was forked by [academic websites](https://github.com/academicpages/academicpages.github.io).
+# ujwaltikhe.github.io
 
+Personal academic portfolio of **Ujwal Tikhe** — cybercrime investigator, digital forensics trainee and software developer. Built with Jekyll on the [academic-pages](https://github.com/academicpages/academicpages.github.io) template (Minimal Mistakes theme) and published to GitHub Pages.
 
-### Note: if you are using this repo and now get a notification about a security vulnerability, delete the Gemfile.lock file. 
+Live site: <https://ujwaltikhe.github.io>
 
-# Instructions
+## Repository layout
 
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+| Path | Purpose |
+| --- | --- |
+| `_pages/` | Top-level pages: home (`about.md`), CV, publications, talks, dataset, blogs, misc, sitemap, 404 |
+| `_portfolio/` | Project entries listed on `/portfolio/` |
+| `_teaching/` | Teaching and training entries |
+| `_publications/`, `_talks/`, `_posts/` | Reserved for future publications, talks and blog posts — archive pages show a "coming soon" notice while empty |
+| `_data/` | Navigation and author metadata |
+| `_includes/`, `_layouts/`, `_sass/`, `assets/` | Theme, layouts and styling |
+| `images/` | Avatar and favicons |
+| `.github/workflows/pages.yml` | Builds and deploys the site on every push to `main` |
 
-See more info at https://academicpages.github.io/
+## Local preview
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
+```bash
+bundle install
+bundle exec jekyll serve --config _config.yml,_config.dev.yml
+```
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+Or with Docker:
+
+```bash
+docker run --rm -v "%CD%:/srv/jekyll" -p 4000:4000 jekyll/jekyll:4 jekyll serve --config _config.yml,_config.dev.yml
+```
+
+## Adding content
+
+- New project: add a markdown file to `_portfolio/` with `title`, `excerpt` and `collection: portfolio` front matter.
+- New publication, talk or post: drop a markdown file into the matching collection folder; the archive pages pick it up automatically.
+
+## License
+
+Template and theme: MIT, (c) Michael Rose and academic-pages contributors — see [LICENSE](LICENSE). Site content: (c) Ujwal Tikhe.
