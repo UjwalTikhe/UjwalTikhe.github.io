@@ -38,10 +38,11 @@ Coming soon.
 
 ## Education
 
-Year | Institute | Major | State
------|-------|--------
-2023 -- 2027 (expected) | MVP Samaj's Karmaveer Baburao Ganpatrao Thakare College of Engineering, Nashik (SPPU) | Computer Engineering | B.E., CGPA 8.7
-2021 -- 2023 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | Science | HSC (Class XII) 74%, SSC (Class X) 90%
+Year | Institute | Major | Degree
+-----|-------|--------|-------
+2023 -- 2027 (expected) | MVP Samaj's Karmaveer Baburao Ganpatrao Thakare College of Engineering, Nashik (SPPU) | Computer Engineering | B.E.
+2021 -- 2023 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | Science | Higher Secondary (Class XI-XII)
+2016 -- 2020 | PM SHRI Kendriya Vidyalaya No. 2, Indian Security Press, Nashik | | Secondary School (Class X)
 
 
 
