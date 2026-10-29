@@ -29,8 +29,8 @@ Before this, I was a Stockbroker Intern at Allianz Versicherungs-AG. I am pursui
 
 ## Experience
 
-* Cybercrime Investigator & Digital Forensics Trainee, Cyber Cell Nashik, Jul 2026 - Present
-* VAPT Intern, Cyber Cell Nashik, Jan 2026 - Jul 2026
+* Cybercrime Investigator & DFT, Cyber Cell Nashik, Jul 2026 - Present
+* Penetration Tester Intern, Cyber Cell Nashik, Jan 2026 - Jul 2026
 * Stockbroker Intern, Allianz Versicherungs-AG (Allianz Internship Program, remote), Nov 2024 - May 2025
 
 ## Selected Publications
