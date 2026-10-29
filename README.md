@@ -11,7 +11,7 @@ Live site: <https://ujwaltikhe.github.io>
 | `_pages/` | Top-level pages: home (`about.md`), CV, publications, talks, dataset, blogs, misc, sitemap, 404 |
 | `_portfolio/` | Project entries listed on `/portfolio/` |
 | `_teaching/` | Teaching and training entries |
-| `_publications/`, `_talks/`, `_posts/` | Reserved for future publications, talks and blog posts — archive pages show a "coming soon" notice while empty |
+| `_publications/`, `_talks/`, `_posts/`, `_drafts/` | Reserved for future publications, talks and blog posts — archive pages show a "coming soon" notice while empty |
 | `_data/` | Navigation and author metadata |
 | `_includes/`, `_layouts/`, `_sass/`, `assets/` | Theme, layouts and styling |
 | `images/` | Avatar and favicons |

@@ -244,15 +244,13 @@ timezone: Asia/Kolkata # http://en.wikipedia.org/wiki/List_of_tz_database_time_z
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
-  # - jekyll-feed
+  - jekyll-feed
   - jekyll-redirect-from
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
-  # - jekyll-feed
+  - jekyll-feed
   - jemoji
 
 
